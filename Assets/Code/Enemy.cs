@@ -5,23 +5,27 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] Transform target;
 
     //Outlet
-    NavMeshAgent navAgent;
+    private NavMeshAgent agent;
 
     //Configuration
-    public Transform target;
+    //public Transform target;
 
     //Methods
     void Start()
     {
-        navAgent = GetComponent<NavMeshAgent>();
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+
     }
     void Update()
     {
-        if (target)
-        {
-            navAgent.SetDestination(target.position);
-        }
+        agent.SetDestination(target.position);
+
     }
 }

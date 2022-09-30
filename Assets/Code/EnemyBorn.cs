@@ -13,7 +13,7 @@ public class EnemyBorn : MonoBehaviour
     //生成怪物的总数量
     public int enemyTotalNum = 10;
     //生成怪物的时间间隔
-    public float intervalTime = 3;
+    public float intervalTime = 5;
     //生成怪物的计数器
     private int enemyCounter;
 
@@ -25,7 +25,7 @@ public class EnemyBorn : MonoBehaviour
         //初始时，怪物计数为0；
         enemyCounter = 0;
         //重复生成怪物
-        InvokeRepeating("CreatEnemy", 0.5F, intervalTime);
+        InvokeRepeating("CreatEnemy", 1F, intervalTime);
     }
 
     // Update is called once per frame
@@ -44,7 +44,7 @@ public class EnemyBorn : MonoBehaviour
 
         //生成一只怪物
         Instantiate(targetEnemy, newPosition, Quaternion.identity);
-        targetEnemy.GetComponent<Enemy>().target = player.transform;
+        //targetEnemy.GetComponent<Enemy>().target = player.transform;
         enemyCounter++;
         //如果计数达到最大值
         if (enemyCounter == enemyTotalNum)
