@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)                          //Bug: Collision with Player may attack
     {
         if (hp < 0) return;
         hp -= 20;
@@ -46,7 +46,8 @@ public class Enemy : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    void TakeDamge(int damage)//当受到伤害
+
+    public void TakeDamge(int damage)//当受到伤害
     {
         if (hp < 0) return;
         hp -= damage;
