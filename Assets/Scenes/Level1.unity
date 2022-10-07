@@ -805,9 +805,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2019505054}
   targetEnemy: {fileID: 8453739461798094321, guid: a2622d516fbbdea42827c06ffa544e2e, type: 3}
-  enemyTotalNum: 3
+  enemyTotalNum: 8
   intervalTime: 3
-  enemyCounter: 0
+  newEnemyCounter: 0
+  curEnemyCounter: 0
   bornFinished: 0
 --- !u!1 &2019505054 stripped
 GameObject:

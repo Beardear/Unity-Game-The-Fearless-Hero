@@ -43,6 +43,7 @@ public class Enemy : MonoBehaviour
         slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
         if (hp <= 0)
         {
+            EnemyBorn.instance.curEnemyCounter--;
             Destroy(this.gameObject);
         }
     }
@@ -54,6 +55,7 @@ public class Enemy : MonoBehaviour
         slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
         if (hp <= 0)
         {
+            EnemyBorn.instance.curEnemyCounter--;
             Destroy(this.gameObject);
         }
     }

@@ -81,10 +81,10 @@ public class PlayerController : MonoBehaviour
         if (hp < 0) return;
         hp -= 5;
         slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
-        if (hp <= 0)
-        {
-            Destroy(this.gameObject);
-        }
+        //if (hp <= 0)
+        //{
+        //    Destroy(this.gameObject);
+        //}
     }
 
     public void TakeDamge(int damage)//当受到伤害
@@ -92,9 +92,9 @@ public class PlayerController : MonoBehaviour
         if (hp < 0) return;
         hp -= damage;
         slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
-        if (hp <= 0)
-        {
-            Destroy(this.gameObject);
-        }
+        //if (hp <= 0)
+        //{
+        //    Destroy(this.gameObject);
+        //}
     }
 }
