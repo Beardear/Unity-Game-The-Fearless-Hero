@@ -35,6 +35,7 @@ public class EnemyBorn : MonoBehaviour
         //instance = this;
         //初始时，怪物计数为0；
         newEnemyCounter = 0;
+        curEnemyCounter = 0;
         //重复生成怪物
         InvokeRepeating("CreatEnemy", 1F, intervalTime);
     }
