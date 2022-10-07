@@ -13,7 +13,7 @@ public class EnemyBorn : MonoBehaviour
     //该出生点生成的怪物
     public GameObject targetEnemy;
     //生成怪物的总数量
-    public int enemyTotalNum = 10;
+    public int enemyTotalNum = 3;
     //生成怪物的时间间隔
     public float intervalTime = 5;
     //生成怪物的计数器

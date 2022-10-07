@@ -805,7 +805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2019505054}
   targetEnemy: {fileID: 8453739461798094321, guid: a2622d516fbbdea42827c06ffa544e2e, type: 3}
-  enemyTotalNum: 10
+  enemyTotalNum: 3
   intervalTime: 3
   enemyCounter: 0
   bornFinished: 0
