@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class EnemyBorn : MonoBehaviour
 {
+    public static EnemyBorn instance;
+
     //Player
     public GameObject player;
 
@@ -15,11 +17,17 @@ public class EnemyBorn : MonoBehaviour
     //生成怪物的时间间隔
     public float intervalTime = 5;
     //生成怪物的计数器
-    private int enemyCounter;
+    public int enemyCounter;
+    //刷怪结束
+    public bool bornFinished=false;
 
     //生成怪物的计数器
 
     // Use this for initialization
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         //初始时，怪物计数为0；
@@ -51,6 +59,7 @@ public class EnemyBorn : MonoBehaviour
         {
             //停止刷新
             CancelInvoke();
+            bornFinished = true;
         }
     }
 }

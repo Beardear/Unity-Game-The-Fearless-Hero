@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
 
     //Methods
     void Start()
-    {   
+    {
 
         target = GameObject.FindGameObjectWithTag("Player").transform;
 
@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)                          //Bug: Collision with Player may attack
+    private void OnCollisionEnter2D(Collision2D collision)                          //Bug1: Collision with Player may attack; Bug2: Weapon position is not true, is the player pushdown 'A'
     {
         if (hp < 0) return;
         hp -= 20;
