@@ -16,8 +16,14 @@ public class PlayerController : MonoBehaviour
     public Slider slider;
     public int hp = 100;
     private int hpHolder;
-    public BoxCollider2D LeftWeapon;
-    public BoxCollider2D RightWeapon;
+    /// <summary>
+    /// 左边攻击碰撞体
+    /// </summary>
+    public GameObject LeftWeapon;
+    /// <summary>
+    /// 右边攻击碰撞体
+    /// </summary>
+    public GameObject RightWeapon;
 
     private void Awake()
     {
@@ -30,6 +36,9 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
 
         hpHolder = hp;
+
+        // 主角默认向右
+        setDirection(false);
     }
 
     // Update is called once per frame
@@ -82,6 +91,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)                          //Bug1: Collision with Player may attack; Bug2: Weapon position is not true, is the player pushdown 'A'
     {
+        print("player tag:" + collision.collider.tag);
+        //怪物武器攻击才会对主角产生伤害
+        if (collision.collider.tag != "MonsterWeapon")
+        {
+            return;
+        }
+        collision.collider.enabled = false;
         if (hp < 0) return;
         hp -= 5;
         slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
@@ -102,9 +118,13 @@ public class PlayerController : MonoBehaviour
     //    //}
     //}
 
+    /// <summary>
+    /// 跟随主角方向显示对应攻击碰撞体
+    /// </summary>
+    /// <param name="value"></param>
     private void setDirection(bool value)
     {
-        LeftWeapon.enabled = value;
-        RightWeapon.enabled = !value;
+        LeftWeapon.SetActive(value);
+        RightWeapon.SetActive(!value);
     }
 }

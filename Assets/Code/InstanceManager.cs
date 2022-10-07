@@ -5,6 +5,7 @@ using UnityEngine;
 public class InstanceManager : MonoBehaviour
 {
     public GameController gameController;
+    public ResultUI resultUI;
 
     public static InstanceManager Instance;
     // Start is called before the first frame update

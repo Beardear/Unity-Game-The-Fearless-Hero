@@ -33,12 +33,20 @@ public class GameController : MonoBehaviour
     {
         if (EnemyBorn.instance.curEnemyCounter <= 0 && EnemyBorn.instance.bornFinished == true)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            showResult(true);
         }
         if (PlayerController.instance.hp<=0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            showResult(false);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
+    }
+
+    public void showResult(bool result)
+    {
+        InstanceManager.Instance.resultUI.gameObject.SetActive(true);
+        InstanceManager.Instance.resultUI.showResult(result);
     }
 }
