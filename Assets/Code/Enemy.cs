@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     {
 
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        transform.rotation = Quaternion.identity;
 
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;

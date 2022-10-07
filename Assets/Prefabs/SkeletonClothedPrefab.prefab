@@ -423,7 +423,6 @@ GameObject:
   - component: {fileID: 3984048020400363365}
   - component: {fileID: 4386375008361886938}
   - component: {fileID: 7124453700209316217}
-  - component: {fileID: -336608216898493386}
   - component: {fileID: 9191382018969877468}
   m_Layer: 7
   m_Name: SkeletonClothedPrefab
@@ -541,20 +540,6 @@ NavMeshAgent:
   m_BaseOffset: 0.26
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &-336608216898493386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8453739461798094321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2017fbf636edf64ea3083eab7331e3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  slider: {fileID: 8441083658287325525}
 --- !u!61 &9191382018969877468
 BoxCollider2D:
   m_ObjectHideFlags: 0

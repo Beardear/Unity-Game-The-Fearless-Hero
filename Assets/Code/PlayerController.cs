@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     public Slider slider;
     public int hp = 100;
     private int hpHolder;
+    public BoxCollider2D LeftWeapon;
+    public BoxCollider2D RightWeapon;
 
     private void Awake()
     {
@@ -53,6 +55,7 @@ public class PlayerController : MonoBehaviour
             //transform.position += new Vector3(-0.1f, 0, 0);
             _rigidbody2D.AddForce(Vector2.left * 36f * Time.deltaTime, ForceMode2D.Impulse);
             sprite.flipX = true;
+            setDirection(true);
         }
 
         if (Input.GetKey(KeyCode.D))
@@ -60,6 +63,7 @@ public class PlayerController : MonoBehaviour
             //transform.position += new Vector3(0.1f, 0, 0);
             _rigidbody2D.AddForce(Vector2.right * 36f * Time.deltaTime, ForceMode2D.Impulse);
             sprite.flipX = false;
+            setDirection(false);
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -97,4 +101,10 @@ public class PlayerController : MonoBehaviour
     //    //    Destroy(this.gameObject);
     //    //}
     //}
+
+    private void setDirection(bool value)
+    {
+        LeftWeapon.enabled = value;
+        RightWeapon.enabled = !value;
+    }
 }
