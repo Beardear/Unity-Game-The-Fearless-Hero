@@ -1331,7 +1331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2019505054}
   targetEnemy: {fileID: 1486327722704969944, guid: 141a2f6a547b4f945b530241c7fea626, type: 3}
-  enemyTotalNum: 5
+  enemyTotalNum: 3
   intervalTime: 3
   newEnemyCounter: 0
   curEnemyCounter: 0
