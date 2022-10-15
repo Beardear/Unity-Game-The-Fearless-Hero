@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class EnemyBorn : MonoBehaviour
 {
-    public static EnemyBorn instance;
 
     //Player
     public GameObject player;
@@ -24,12 +23,7 @@ public class EnemyBorn : MonoBehaviour
     public bool bornFinished = false;
 
     //生成怪物的计数器
-
-    // Use this for initialization
-    private void Awake()
-    {
-        instance = this;
-    }
+    
     void Start()
     {
         //instance = this;

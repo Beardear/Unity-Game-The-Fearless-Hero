@@ -31,7 +31,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (EnemyBorn.instance.curEnemyCounter <= 0 && EnemyBorn.instance.bornFinished == true)
+        if (InstanceManager.Instance.enemyBorn.curEnemyCounter <= 0 && InstanceManager.Instance.enemyBorn.bornFinished == true)
         {
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             showResult(true);

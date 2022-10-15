@@ -225,6 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameController: {fileID: 1822149531}
   resultUI: {fileID: 315397419}
+  enemyBorn: {fileID: 1912894668}
 --- !u!4 &298299971
 Transform:
   m_ObjectHideFlags: 0
@@ -1329,7 +1330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2019505054}
-  targetEnemy: {fileID: 8453739461798094321, guid: a2622d516fbbdea42827c06ffa544e2e, type: 3}
+  targetEnemy: {fileID: 1486327722704969944, guid: 141a2f6a547b4f945b530241c7fea626, type: 3}
   enemyTotalNum: 5
   intervalTime: 3
   newEnemyCounter: 0

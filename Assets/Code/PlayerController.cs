@@ -14,8 +14,7 @@ public class PlayerController : MonoBehaviour
     Animator animator;
 
     public Slider slider;
-    public int hp = 100;
-    private int hpHolder;
+
     /// <summary>
     /// 左边攻击碰撞体
     /// </summary>
@@ -24,6 +23,10 @@ public class PlayerController : MonoBehaviour
     /// 右边攻击碰撞体
     /// </summary>
     public GameObject RightWeapon;
+
+    public int hp = 100;
+    private int hpHolder;
+    private float speedUpArgument;
 
     private void Awake()
     {
@@ -36,6 +39,7 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
 
         hpHolder = hp;
+        speedUpArgument = 1;        //默认不加速
 
         // 主角默认向右
         setDirection(false);
@@ -50,19 +54,19 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             //transform.position += new Vector3(0, 0.1f, 0);
-            _rigidbody2D.AddForce(Vector2.up * 25f * Time.deltaTime, ForceMode2D.Impulse);
+            _rigidbody2D.AddForce(Vector2.up * 25f * Time.deltaTime* speedUpArgument, ForceMode2D.Impulse);
         }
 
         if (Input.GetKey(KeyCode.S))
         {
             //transform.position += new Vector3(0, -0.1f, 0);
-            _rigidbody2D.AddForce(Vector2.down * 25f * Time.deltaTime, ForceMode2D.Impulse);
+            _rigidbody2D.AddForce(Vector2.down * 25f * Time.deltaTime* speedUpArgument, ForceMode2D.Impulse);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
             //transform.position += new Vector3(-0.1f, 0, 0);
-            _rigidbody2D.AddForce(Vector2.left * 36f * Time.deltaTime, ForceMode2D.Impulse);
+            _rigidbody2D.AddForce(Vector2.left * 36f * Time.deltaTime* speedUpArgument, ForceMode2D.Impulse);
             sprite.flipX = true;
             setDirection(true);
         }
@@ -70,9 +74,19 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             //transform.position += new Vector3(0.1f, 0, 0);
-            _rigidbody2D.AddForce(Vector2.right * 36f * Time.deltaTime, ForceMode2D.Impulse);
+            _rigidbody2D.AddForce(Vector2.right * 36f * Time.deltaTime* speedUpArgument, ForceMode2D.Impulse);
             sprite.flipX = false;
             setDirection(false);
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))    //Shift speed up
+        {
+            speedUpArgument = 1.8f;
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))    //Shift speed up
+        {
+            speedUpArgument = 1f;
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -89,7 +103,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)                          //Bug1: Collision with Player may attack; Bug2: Weapon position is not true, is the player pushdown 'A'
+    private void OnCollisionEnter2D(Collision2D collision)                          //Bug1: Collision with Player may attack
     {
         print("player tag:" + collision.collider.tag);
         //怪物武器攻击才会对主角产生伤害
