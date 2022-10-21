@@ -28,6 +28,10 @@ public class PlayerController : MonoBehaviour
     private int hpHolder;
     private float speedUpArgument;
 
+    //KungfuEnableList
+    public Dictionary<string,bool> KungfuEnableList;
+
+
     private void Awake()
     {
         instance = this;
@@ -43,6 +47,11 @@ public class PlayerController : MonoBehaviour
 
         // 主角默认向右
         setDirection(false);
+
+        //KungfuEnableList
+        KungfuEnableList = new Dictionary<string,bool>();
+        KungfuEnableList.Add("Kick", true);
+        KungfuEnableList.Add("DiveKick", false);
     }
 
     // Update is called once per frame
@@ -89,13 +98,22 @@ public class PlayerController : MonoBehaviour
             speedUpArgument = 1f;
         }
 
-        if (Input.GetMouseButtonDown(0))
+        //Attack
+        if (Input.GetMouseButtonDown(0)&&KungfuEnableList["Kick"])
         {
             //_rigidbody2D.velocity.Set(0,0);
             //animator.SetFloat("Speed", _rigidbody2D.velocity.magnitude);
 
             animator.SetTrigger("Attack");
         }
+        if (Input.GetKeyUp(KeyCode.K) && KungfuEnableList["DiveKick"])
+        {
+            //_rigidbody2D.velocity.Set(0,0);
+            //animator.SetFloat("Speed", _rigidbody2D.velocity.magnitude);
+
+            animator.SetTrigger("Attack");
+        }
+
     }
 
     void FixedUpdate()
@@ -103,7 +121,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)                          //Bug1: Collision with Player may attack
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         print("player tag:" + collision.collider.tag);
         //怪物武器攻击才会对主角产生伤害
