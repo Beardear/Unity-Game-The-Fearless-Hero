@@ -104,14 +104,14 @@ public class PlayerController : MonoBehaviour
             //_rigidbody2D.velocity.Set(0,0);
             //animator.SetFloat("Speed", _rigidbody2D.velocity.magnitude);
 
-            animator.SetTrigger("Attack");
+            animator.SetTrigger("Kick");
         }
         if (Input.GetKeyUp(KeyCode.K) && KungfuEnableList["DiveKick"])
         {
             //_rigidbody2D.velocity.Set(0,0);
             //animator.SetFloat("Speed", _rigidbody2D.velocity.magnitude);
 
-            animator.SetTrigger("Attack");
+            animator.SetTrigger("DiveKick");
         }
 
     }
