@@ -59,14 +59,14 @@ public class Enemy : MonoBehaviour
         {
             autoAttackTime += Time.deltaTime;
         }
-        if(autoAttackTime > autoAttackCd)
+        if (autoAttackTime > autoAttackCd)
         {
             autoAttackTime = 0;
             attackthePlayer();
         }
 
         //Animation Walk
-        
+
         if ((transform.position - lastpos).sqrMagnitude > 0.001f)
         {
             animator.SetFloat("Speed", 1);
@@ -79,6 +79,28 @@ public class Enemy : MonoBehaviour
         lastpos = transform.position;
     }
 
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (hp <= 0) return;
+    //    //print("enemy tag:" + collision.gameObject.tag);
+    //    if (collision.collider.tag == "Player")
+    //    {
+    //        canAttack = true;
+    //    }
+    //    //主角武器攻击才会对怪物产生伤害
+    //    if (collision.collider.tag != "PlayerWeapon")
+    //    {
+    //        return;
+    //    }
+
+    //    hp -= 20;
+    //    slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
+    //    if (hp <= 0)
+    //    {
+    //        InstanceManager.Instance.enemyBorn.curEnemyCounter--;
+    //        animator.SetTrigger("Death");
+    //    }
+    //}
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (hp <= 0) return;
@@ -88,18 +110,27 @@ public class Enemy : MonoBehaviour
             canAttack = true;
         }
         //主角武器攻击才会对怪物产生伤害
-        if (collision.collider.tag != "PlayerWeapon")
+        if (collision.collider.tag == "Weapon_Kick")
+        {
+            hp -= 15;
+            slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
+        }
+        else if (collision.collider.tag == "Weapon_DiveKick")
+        {
+            hp -= 30;
+            slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
+        }
+        else
         {
             return;
         }
-        
-        hp -= 20;
-        slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
+
+
         if (hp <= 0)
         {
             InstanceManager.Instance.enemyBorn.curEnemyCounter--;
             animator.SetTrigger("Death");
-            
+
         }
     }
 
