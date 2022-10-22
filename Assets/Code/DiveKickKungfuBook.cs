@@ -22,7 +22,8 @@ public class DiveKickKungfuBook : MonoBehaviour
         {
             return;
         }
-        InstanceManager.Instance.PlayerController.KungfuEnableList["DiveKick"] = true;
+        //InstanceManager.Instance.PlayerController.KungfuEnableList["DiveKick"] = true;
+        PlayerModel.Instance.KungfuEnableList["DiveKick"] = true;
         Destroy(this.gameObject);
     }
 }

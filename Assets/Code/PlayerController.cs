@@ -18,18 +18,16 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// ×ó±ß¹¥»÷Åö×²Ìå
     /// </summary>
-    public GameObject LeftWeapon;
+    public GameObject KickLeftWeapon;
+    public GameObject DiveKickLeftWeapon;
     /// <summary>
     /// ÓÒ±ß¹¥»÷Åö×²Ìå
     /// </summary>
-    public GameObject RightWeapon;
-
+    public GameObject KickRightWeapon;
+    public GameObject DiveKickRightWeapon;
     public int hp = 100;
     private int hpHolder;
     private float speedUpArgument;
-
-    //KungfuEnableList
-    public Dictionary<string,bool> KungfuEnableList;
 
 
     private void Awake()
@@ -47,11 +45,6 @@ public class PlayerController : MonoBehaviour
 
         // Ö÷½ÇÄ¬ÈÏÏòÓÒ
         setDirection(false);
-
-        //KungfuEnableList
-        KungfuEnableList = new Dictionary<string,bool>();
-        KungfuEnableList.Add("Kick", true);
-        KungfuEnableList.Add("DiveKick", false);
     }
 
     // Update is called once per frame
@@ -99,14 +92,14 @@ public class PlayerController : MonoBehaviour
         }
 
         //Attack
-        if (Input.GetMouseButtonDown(0)&&KungfuEnableList["Kick"])
+        if (Input.GetMouseButtonDown(0)&&PlayerModel.Instance.KungfuEnableList["Kick"])
         {
             //_rigidbody2D.velocity.Set(0,0);
             //animator.SetFloat("Speed", _rigidbody2D.velocity.magnitude);
 
             animator.SetTrigger("Kick");
         }
-        if (Input.GetKeyUp(KeyCode.K) && KungfuEnableList["DiveKick"])
+        if (Input.GetKeyUp(KeyCode.K) && PlayerModel.Instance.KungfuEnableList["DiveKick"])
         {
             //_rigidbody2D.velocity.Set(0,0);
             //animator.SetFloat("Speed", _rigidbody2D.velocity.magnitude);
@@ -156,7 +149,9 @@ public class PlayerController : MonoBehaviour
     /// <param name="value"></param>
     private void setDirection(bool value)
     {
-        LeftWeapon.SetActive(value);
-        RightWeapon.SetActive(!value);
+        KickLeftWeapon.SetActive(value);
+        DiveKickLeftWeapon.SetActive(value);
+        KickRightWeapon.SetActive(!value);
+        DiveKickRightWeapon.SetActive(!value);
     }
 }
