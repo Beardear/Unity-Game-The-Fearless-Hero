@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     public Slider slider;
     public Animator animator;
     public Rigidbody2D _rigidbody2D;
+    public GameObject Book;
 
     private int hp = 100;
     private int hpHolder;
@@ -152,18 +153,20 @@ public class Enemy : MonoBehaviour
 
     private void enemyDeath()           //死亡动画结束后调用
     {
+        //胜利
+        if (InstanceManager.Instance.enemyBorn.curEnemyCounter <= 0 && InstanceManager.Instance.enemyBorn.bornFinished == true)
+        {
+            //掉落书
+            //Random Positions
+            //X介于2-8，Y介于-4--1
+            Vector3 newPosition = InstanceManager.Instance.enemyBorn.transform.position;
+            newPosition.x += Random.Range(0, 6.0f);
+            newPosition.y += Random.Range(0, 3.0f);
+
+            //生成一本书
+            Instantiate(Book, newPosition, Quaternion.identity);
+        }
+
         Destroy(this.gameObject);
     }
-
-    //public void TakeDamge(int damage)//当受到伤害
-    //{
-    //    if (hp < 0) return;
-    //    hp -= damage;
-    //    slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
-    //    if (hp <= 0)
-    //    {
-    //        EnemyBorn.instance.curEnemyCounter--;
-    //        Destroy(this.gameObject);
-    //    }
-    //}
 }

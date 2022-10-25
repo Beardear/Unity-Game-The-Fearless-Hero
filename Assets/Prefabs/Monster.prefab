@@ -502,6 +502,7 @@ MonoBehaviour:
   slider: {fileID: 53667105892428575}
   animator: {fileID: 0}
   _rigidbody2D: {fileID: 7059942169559961959}
+  Book: {fileID: 8839558941684647297, guid: f533c8230a0f246449b7372c6056069c, type: 3}
   autoAttackTime: 0
   autoAttackCd: 1
   weapon: {fileID: 1424761233397409165}

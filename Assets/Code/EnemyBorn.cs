@@ -50,10 +50,13 @@ public class EnemyBorn : MonoBehaviour
 
         //生成一只怪物
         Instantiate(targetEnemy, newPosition, Quaternion.identity);
-        print("monster rotation" + Quaternion.identity);
+
+        //print("monster rotation" + Quaternion.identity);
         //targetEnemy.GetComponent<Enemy>().target = player.transform;
+
         newEnemyCounter++;
         curEnemyCounter++;
+
         //如果计数达到最大值
         if (newEnemyCounter == enemyTotalNum)
         {

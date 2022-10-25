@@ -132,17 +132,6 @@ public class PlayerController : MonoBehaviour
         //}
     }
 
-    //public void TakeDamge(int damage)//当受到伤害
-    //{
-    //    if (hp < 0) return;
-    //    hp -= damage;
-    //    slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
-    //    //if (hp <= 0)
-    //    //{
-    //    //    Destroy(this.gameObject);
-    //    //}
-    //}
-
     /// <summary>
     /// 跟随主角方向显示对应攻击碰撞体
     /// </summary>

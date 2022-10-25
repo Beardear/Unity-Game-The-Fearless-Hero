@@ -5,7 +5,7 @@ using UnityEngine;
 public class InstanceManager : MonoBehaviour
 {
     public GameController gameController;
-    public ResultUI resultUI;
+    public UI uI;
     public EnemyBorn enemyBorn;
     public PlayerController PlayerController;
 
@@ -14,15 +14,5 @@ public class InstanceManager : MonoBehaviour
      void Awake()
     {
         Instance = this;
-    }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
