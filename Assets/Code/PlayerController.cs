@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Attack
-        if (Input.GetMouseButtonDown(0)&&PlayerModel.Instance.KungfuEnableList["Kick"])
+        if (Input.GetKeyUp(KeyCode.J) && PlayerModel.Instance.KungfuEnableList["Kick"])
         {
             //_rigidbody2D.velocity.Set(0,0);
             //animator.SetFloat("Speed", _rigidbody2D.velocity.magnitude);
