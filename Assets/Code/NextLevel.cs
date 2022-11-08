@@ -37,6 +37,12 @@ public class NextLevel : MonoBehaviour
                 break;
         }
 
+        if (nextSceneName == "StartScene")
+        {
+            PlayerModel.Instance.KungfuEnableList["Kick"] = true;
+            PlayerModel.Instance.KungfuEnableList["DiveKick"] = false;
+        }
+
         SceneManager.LoadScene(nextSceneName);        //ÇÐ»»³¡¾°
     }
 
