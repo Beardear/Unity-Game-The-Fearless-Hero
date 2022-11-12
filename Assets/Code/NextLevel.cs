@@ -27,6 +27,12 @@ public class NextLevel : MonoBehaviour
                 nextSceneName = "Level2";
                 break;
             case "Level2":
+                nextSceneName = "Level3";
+                break;
+            case "Level3":
+                nextSceneName = "Level4";
+                break;
+            case "Level4":
                 nextSceneName = "EndScene";
                 break;
             case "EndScene":

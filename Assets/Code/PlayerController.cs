@@ -20,11 +20,16 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public GameObject KickLeftWeapon;
     public GameObject DiveKickLeftWeapon;
+    public GameObject JabLeftWeapon;
+    public GameObject JumpKickLeftWeapon;
     /// <summary>
     /// 右边攻击碰撞体
     /// </summary>
     public GameObject KickRightWeapon;
     public GameObject DiveKickRightWeapon;
+    public GameObject JabRightWeapon;
+    public GameObject JumpKickRightWeapon;
+
     public int hp = 100;
     private int hpHolder;
     private float speedUpArgument;
@@ -52,19 +57,17 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetFloat("Speed", _rigidbody2D.velocity.magnitude);
 
-
+        //Move
         if (Input.GetKey(KeyCode.W))
         {
             //transform.position += new Vector3(0, 0.1f, 0);
             _rigidbody2D.AddForce(Vector2.up * 25f * Time.deltaTime* speedUpArgument, ForceMode2D.Impulse);
         }
-
         if (Input.GetKey(KeyCode.S))
         {
             //transform.position += new Vector3(0, -0.1f, 0);
             _rigidbody2D.AddForce(Vector2.down * 25f * Time.deltaTime* speedUpArgument, ForceMode2D.Impulse);
         }
-
         if (Input.GetKey(KeyCode.A))
         {
             //transform.position += new Vector3(-0.1f, 0, 0);
@@ -72,7 +75,6 @@ public class PlayerController : MonoBehaviour
             sprite.flipX = true;
             setDirection(true);
         }
-
         if (Input.GetKey(KeyCode.D))
         {
             //transform.position += new Vector3(0.1f, 0, 0);
@@ -81,34 +83,35 @@ public class PlayerController : MonoBehaviour
             setDirection(false);
         }
 
+        //Speed
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))    //Shift speed up
         {
             speedUpArgument = 1.8f;
         }
-
         if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))    //Shift speed up
         {
             speedUpArgument = 1f;
         }
 
         //Attack
-        if (Input.GetKeyUp(KeyCode.J) && PlayerModel.Instance.KungfuEnableList["Kick"])
+        if (Input.GetKeyUp(KeyCode.J) && PlayerModel.Instance.KungfuEnableList["Jab"])
         {
-            //_rigidbody2D.velocity.Set(0,0);
-            //animator.SetFloat("Speed", _rigidbody2D.velocity.magnitude);
-
+            animator.SetTrigger("Jab");
+        }
+        if (Input.GetKeyUp(KeyCode.K) && PlayerModel.Instance.KungfuEnableList["Kick"])
+        {
             animator.SetTrigger("Kick");
         }
-        if (Input.GetKeyUp(KeyCode.K) && PlayerModel.Instance.KungfuEnableList["DiveKick"])
+        if (Input.GetKeyUp(KeyCode.L) && PlayerModel.Instance.KungfuEnableList["DiveKick"])
         {
-            //_rigidbody2D.velocity.Set(0,0);
-            //animator.SetFloat("Speed", _rigidbody2D.velocity.magnitude);
-
             animator.SetTrigger("DiveKick");
         }
-
+        if (Input.GetKeyUp(KeyCode.O) && PlayerModel.Instance.KungfuEnableList["JumpKick"])
+        {
+            animator.SetTrigger("JumpKick");
+        }
     }
-
+    
     void FixedUpdate()
     {
 
@@ -126,10 +129,6 @@ public class PlayerController : MonoBehaviour
         if (hp < 0) return;
         hp -= 5;
         slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
-        //if (hp <= 0)
-        //{
-        //    Destroy(this.gameObject);
-        //}
     }
 
     /// <summary>
@@ -140,7 +139,12 @@ public class PlayerController : MonoBehaviour
     {
         KickLeftWeapon.SetActive(value);
         DiveKickLeftWeapon.SetActive(value);
+        JabLeftWeapon.SetActive(value);
+        JumpKickLeftWeapon.SetActive(value);
+
         KickRightWeapon.SetActive(!value);
         DiveKickRightWeapon.SetActive(!value);
+        JabRightWeapon.SetActive(!value);
+        JumpKickRightWeapon.SetActive(!value);
     }
 }

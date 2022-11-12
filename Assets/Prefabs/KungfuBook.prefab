@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8839558941684647298}
   - component: {fileID: 8839558941684647311}
   m_Layer: 7
-  m_Name: DiveKickKungfuBook
+  m_Name: KungfuBook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

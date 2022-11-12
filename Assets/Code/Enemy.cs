@@ -106,19 +106,37 @@ public class Enemy : MonoBehaviour
     {
         if (hp <= 0) return;
         //print("enemy tag:" + collision.gameObject.tag);
-        if (collision.collider.tag == "Player")
+        if (collision.collider.tag == "Player")                 //使Enemy开始攻击Player
         {
             canAttack = true;
         }
+
         //主角武器攻击才会对怪物产生伤害
-        if (collision.collider.tag == "Weapon_Kick")
+        //计算Player的伤害系数
+        double damageArgPlayer = PlayerModel.Instance.Lv * 0.15 + 1;
+        print(damageArgPlayer);
+        if (collision.collider.name == "JabLeftWeapon"||collision.collider.name == "JabRightWeapon")
         {
-            hp -= 15;
+            double damage = 12 * damageArgPlayer;
+            hp -= (int)damage;
             slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
         }
-        else if (collision.collider.tag == "Weapon_DiveKick")
+        else if (collision.collider.name == "KickLeftWeapon" || collision.collider.name == "KickRightWeapon")
         {
-            hp -= 30;
+            double damage = 18 * damageArgPlayer;
+            hp -= (int)damage;
+            slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
+        }
+        else if (collision.collider.name == "DiveKickLeftWeapon" || collision.collider.name == "DiveKickRightWeapon")
+        {
+            double damage = 24 * damageArgPlayer;
+            hp -= (int)damage;
+            slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
+        }
+        else if (collision.collider.name == "JumpKickLeftWeapon" || collision.collider.name == "JumpKickRightWeapon")
+        {
+            double damage = 30 * damageArgPlayer;
+            hp -= (int)damage;
             slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
         }
         else
@@ -126,12 +144,10 @@ public class Enemy : MonoBehaviour
             return;
         }
 
-
         if (hp <= 0)
         {
             InstanceManager.Instance.enemyBorn.curEnemyCounter--;
             animator.SetTrigger("Death");
-
         }
     }
 
@@ -153,6 +169,9 @@ public class Enemy : MonoBehaviour
 
     private void enemyDeath()           //死亡动画结束后调用
     {
+        //Add LvValue to Player
+        PlayerModel.Instance.addLvValue(36);        //一个怪36点经验
+
         //胜利
         if (InstanceManager.Instance.enemyBorn.curEnemyCounter <= 0 && InstanceManager.Instance.enemyBorn.bornFinished == true)
         {
@@ -170,3 +189,14 @@ public class Enemy : MonoBehaviour
         Destroy(this.gameObject);
     }
 }
+
+//if (collision.collider.tag == "Weapon_Kick")
+//{
+//    hp -= 15;
+//    slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
+//}
+//else if (collision.collider.tag == "Weapon_DiveKick")
+//{
+//    hp -= 30;
+//    slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
+//}

@@ -17,7 +17,43 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndScene.unity
     guid: b5944424185d5b04585d054876d7a2de
+  - enabled: 0
+    path: Assets/Scenes/Level2Backup.unity
+    guid: 74484c8478bc31742ad79997543f2c53
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: 
+    guid: 03f27254c94f1124ea8ce33447f89c96
+  - enabled: 1
+    path: 
+    guid: d9e6c993933d4be4f8462f7d2c9bc18f
+  - enabled: 1
+    path: 
+    guid: 8fb52ad2818dd42448a9a5a80ab1def2
   - enabled: 1
     path: Assets/Scenes/Level2.unity
-    guid: 74484c8478bc31742ad79997543f2c53
+    guid: e4e782ed684104a44b14be9ec6b6244d
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: 563fa434bd5c0414ab0ef96b8f60c7bd
+  - enabled: 1
+    path: Assets/Scenes/Level4.unity
+    guid: cdde23bfcbdfc3849adfffe05ec7bfd9
   m_configObjects: {}
