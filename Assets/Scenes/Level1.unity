@@ -153,6 +153,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46b2056d206dfbc40aa576af97fe5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  JabAudio: {fileID: 8300000, guid: 40cbde70727d694418e4dbb1762792cf, type: 3}
+  KickAudio: {fileID: 8300000, guid: bfe9cfb7523fbbb4285f3ec8a3fb579f, type: 3}
+  DiveKickAudio: {fileID: 8300000, guid: 59586b60b10e65a4c809a21299abad41, type: 3}
+  JumpKickAudio: {fileID: 8300000, guid: cb91c56a38d46dd49859f70ad0b8737a, type: 3}
 --- !u!82 &286057654
 AudioSource:
   m_ObjectHideFlags: 0

@@ -5,18 +5,37 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     //Outlet
-    AudioSource backgroundLevelMusic;
+    AudioSource audioSource;
+    public AudioClip JabAudio;
+    public AudioClip KickAudio;
+    public AudioClip DiveKickAudio;
+    public AudioClip JumpKickAudio;
     //public AudioClip backgroundLevelMusic;
     //public AudioClip hitAudio;
 
-
+    public void playJabAudio()
+    {
+        audioSource.PlayOneShot(JabAudio);
+    }
+    public void playKickAudio()
+    {
+        audioSource.PlayOneShot(KickAudio);
+    }
+    public void playDiveKickAudio()
+    {
+        audioSource.PlayOneShot(DiveKickAudio);
+    }
+    public void playJumpKickAudio()
+    {
+        audioSource.PlayOneShot(JumpKickAudio);
+    }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        backgroundLevelMusic = GetComponent<AudioSource>();
-        backgroundLevelMusic.Play();
+        audioSource = GetComponent<AudioSource>();      //≤•∑≈±≥æ∞“Ù¿÷
+        audioSource.Play();
     }
 
     // Update is called once per frame

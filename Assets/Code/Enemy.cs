@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     public Rigidbody2D _rigidbody2D;
     public GameObject Book;
+    public GameObject damageCanvas;
 
     private int hp = 100;
     private int hpHolder;
@@ -115,29 +116,53 @@ public class Enemy : MonoBehaviour
         //计算Player的伤害系数
         double damageArgPlayer = PlayerModel.Instance.Lv * 0.15 + 1;
         print(damageArgPlayer);
-        if (collision.collider.name == "JabLeftWeapon"||collision.collider.name == "JabRightWeapon")
+        if (collision.collider.name == "JabLeftWeapon" || collision.collider.name == "JabRightWeapon")
         {
             double damage = 12 * damageArgPlayer;
+            damage = Random.Range((float)damage - 3, (float)damage + 3);
             hp -= (int)damage;
             slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
+            InstanceManager.Instance.soundManager.playJabAudio();
+
+            //数字特效
+            DamageDigits damageDigits = Instantiate(damageCanvas, transform.position, Quaternion.identity).GetComponent<DamageDigits>();
+            damageDigits.ShowUIDamage(Mathf.RoundToInt((float)damage));
         }
         else if (collision.collider.name == "KickLeftWeapon" || collision.collider.name == "KickRightWeapon")
         {
             double damage = 18 * damageArgPlayer;
+            damage = Random.Range((float)damage - 3, (float)damage + 3);
             hp -= (int)damage;
             slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
+            InstanceManager.Instance.soundManager.playKickAudio();
+
+            //数字特效
+            DamageDigits damageDigits = Instantiate(damageCanvas, transform.position, Quaternion.identity).GetComponent<DamageDigits>();
+            damageDigits.ShowUIDamage(Mathf.RoundToInt((float)damage));
         }
         else if (collision.collider.name == "DiveKickLeftWeapon" || collision.collider.name == "DiveKickRightWeapon")
         {
             double damage = 24 * damageArgPlayer;
+            damage = Random.Range((float)damage - 3, (float)damage + 3);
             hp -= (int)damage;
             slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
+            InstanceManager.Instance.soundManager.playDiveKickAudio();
+
+            //数字特效
+            DamageDigits damageDigits = Instantiate(damageCanvas, transform.position, Quaternion.identity).GetComponent<DamageDigits>();
+            damageDigits.ShowUIDamage(Mathf.RoundToInt((float)damage));
         }
         else if (collision.collider.name == "JumpKickLeftWeapon" || collision.collider.name == "JumpKickRightWeapon")
         {
             double damage = 30 * damageArgPlayer;
+            damage = Random.Range((float)damage - 3, (float)damage + 3);
             hp -= (int)damage;
             slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
+            InstanceManager.Instance.soundManager.playJumpKickAudio();
+
+            //数字特效
+            DamageDigits damageDigits = Instantiate(damageCanvas, transform.position, Quaternion.identity).GetComponent<DamageDigits>();
+            damageDigits.ShowUIDamage(Mathf.RoundToInt((float)damage));
         }
         else
         {

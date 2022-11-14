@@ -7,6 +7,8 @@ TagManager:
   - PlayerWeapon
   - Monster
   - MonsterWeapon
+  - Weapon_Kick
+  - Weapon_DiveKick
   layers:
   - Default
   - TransparentFX
@@ -49,4 +51,7 @@ TagManager:
     locked: 0
   - name: Hero
     uniqueID: 2493002093
+    locked: 0
+  - name: DamageDigitsLayer
+    uniqueID: 973409423
     locked: 0

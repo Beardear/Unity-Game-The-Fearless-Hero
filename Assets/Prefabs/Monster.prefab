@@ -295,6 +295,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2209666882126930811
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6167737844351821959}
+  m_Layer: 0
+  m_Name: DamagePos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6167737844351821959
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2209666882126930811}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.2748733, y: -0.48625267, z: -0.015957832}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3067059407761034084}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3483161359625706939
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,6 +463,7 @@ Transform:
   - {fileID: 4941613991348735285}
   - {fileID: 1683479079654378873}
   - {fileID: 6312227402817745420}
+  - {fileID: 6167737844351821959}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -504,6 +536,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   _rigidbody2D: {fileID: 7059942169559961959}
   Book: {fileID: 8839558941684647297, guid: f533c8230a0f246449b7372c6056069c, type: 3}
+  damageCanvas: {fileID: 2985797958638197470, guid: b32563f05d30029438a9ae11d557223a, type: 3}
   autoAttackTime: 0
   autoAttackCd: 1
   weapon: {fileID: 1424761233397409165}
