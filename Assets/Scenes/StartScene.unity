@@ -155,8 +155,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   JabAudio: {fileID: 8300000, guid: 40cbde70727d694418e4dbb1762792cf, type: 3}
   KickAudio: {fileID: 8300000, guid: bfe9cfb7523fbbb4285f3ec8a3fb579f, type: 3}
-  DiveKickAudio: {fileID: 8300000, guid: 59586b60b10e65a4c809a21299abad41, type: 3}
-  JumpKickAudio: {fileID: 8300000, guid: cb91c56a38d46dd49859f70ad0b8737a, type: 3}
+  DiveKickAudio: {fileID: 8300000, guid: b3fece9e35409b046ac68506fec23166, type: 3}
+  JumpKickAudio: {fileID: 8300000, guid: 1cdd83ae4e0eaee4facef4d38b58a8f9, type: 3}
 --- !u!82 &286057654
 AudioSource:
   m_ObjectHideFlags: 0
@@ -167,7 +167,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f7cb86c3bd4db264cb4120ec3a39a52e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 520a4182613c6c549bdf0bb3910f0a00, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
