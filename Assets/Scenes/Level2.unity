@@ -2583,6 +2583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2019505054}
   targetEnemy: {fileID: 4199642498274859121, guid: 6a221a08a18dffc4885788c401177e31, type: 3}
+  targetDarkKnight: {fileID: 363586869858617952, guid: d4c2585259bfd014ca7dce8f8c8d31ac, type: 3}
   enemyTotalNum: 3
   intervalTime: 3
   newEnemyCounter: 0
