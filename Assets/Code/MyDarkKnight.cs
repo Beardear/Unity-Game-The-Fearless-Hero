@@ -21,7 +21,7 @@ public class MyDarkKnight : MonoBehaviour
     private Vector3 lastpos;
 
 
-    private bool canAttack = false;
+    public bool canAttack = false;
     public float autoAttackTime = 0;
     public float autoAttackCd = 1;
     public BoxCollider2D weapon;

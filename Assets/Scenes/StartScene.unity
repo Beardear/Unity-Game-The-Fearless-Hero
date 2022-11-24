@@ -154,8 +154,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JabAudio: {fileID: 8300000, guid: 40cbde70727d694418e4dbb1762792cf, type: 3}
-  KickAudio: {fileID: 8300000, guid: bfe9cfb7523fbbb4285f3ec8a3fb579f, type: 3}
-  DiveKickAudio: {fileID: 8300000, guid: b3fece9e35409b046ac68506fec23166, type: 3}
+  KickAudio: {fileID: 8300000, guid: b3fece9e35409b046ac68506fec23166, type: 3}
+  DiveKickAudio: {fileID: 8300000, guid: 59586b60b10e65a4c809a21299abad41, type: 3}
   JumpKickAudio: {fileID: 8300000, guid: 1cdd83ae4e0eaee4facef4d38b58a8f9, type: 3}
 --- !u!82 &286057654
 AudioSource:
@@ -312,9 +312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcfdc3c515176b14b99312a06d6111f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameController: {fileID: 0}
-  uI: {fileID: 0}
-  soundManager: {fileID: 0}
+  uI: {fileID: 315397419}
+  soundManager: {fileID: 286057653}
 --- !u!1 &315397414
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,6 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14b85130b60a87c40ab733ec5d1e4d64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 787949822}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

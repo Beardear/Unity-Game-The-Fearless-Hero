@@ -37,6 +37,8 @@ public class GameController : MonoBehaviour
         //}
         if (PlayerController.instance.hp <= 0)
         {
+            //²¥·ÅPlayerËÀÍö¶¯»­
+            PlayerController.instance.PlayerDeath();
             showResult(false);
         }
 

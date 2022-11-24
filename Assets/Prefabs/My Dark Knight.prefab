@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5109939084682627499}
   - component: {fileID: 3373832487987655509}
   - component: {fileID: 8508384190671171271}
-  - component: {fileID: 3192892098058225526}
   - component: {fileID: 36577602845494792}
   m_Layer: 0
   m_Name: My Dark Knight
@@ -112,6 +111,7 @@ MonoBehaviour:
   _rigidbody2D: {fileID: 3373832487987655509}
   Book: {fileID: 8839558941684647297, guid: f533c8230a0f246449b7372c6056069c, type: 3}
   damageCanvas: {fileID: 2985797958638197470, guid: b32563f05d30029438a9ae11d557223a, type: 3}
+  canAttack: 0
   autoAttackTime: 0
   autoAttackCd: 1
   weapon: {fileID: 1565276302794257160}
@@ -178,32 +178,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &3192892098058225526
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 363586869858617952}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.02, y: 0.662}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 3.125, y: 2.34375}
-    newSize: {x: 2, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.8, y: 1.2}
-  m_EdgeRadius: 0
 --- !u!208 &36577602845494792
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -270,7 +244,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0088759065, y: -0.12883809}
+  m_Offset: {x: 0.008875966, y: -0.12883809}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -281,7 +255,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.67992413, y: 0.77767617}
+  m_Size: {x: 0.69941854, y: 0.77767617}
   m_EdgeRadius: 0
 --- !u!1 &1898429594736933218
 GameObject:

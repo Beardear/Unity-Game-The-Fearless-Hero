@@ -147,4 +147,17 @@ public class PlayerController : MonoBehaviour
         JabRightWeapon.SetActive(!value);
         JumpKickRightWeapon.SetActive(!value);
     }
+
+    //播放死亡动画
+    public void PlayerDeath()
+    {
+        animator.SetTrigger("Death");
+    }
+
+    //动画结束后调用
+    private void playerDeath()
+    {
+        print("playerDeath***");
+        Destroy(this.gameObject);
+    }
 }

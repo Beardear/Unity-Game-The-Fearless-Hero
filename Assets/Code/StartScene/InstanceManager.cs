@@ -6,7 +6,7 @@ namespace StartScene
 {
     public class InstanceManager : MonoBehaviour
     {
-        public GameController gameController;
+        //public GameController gameController;
         public UI uI;
         //public EnemyBorn enemyBorn;
         //public PlayerController PlayerController;
