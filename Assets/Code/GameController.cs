@@ -14,6 +14,9 @@ public class GameController : MonoBehaviour
     //public GameObject enemyBorn;
     //public GameObject Book;
 
+    private bool noEnd = true;
+    public bool bookNum = false;
+
 
     //Methods
     void Awake()
@@ -24,6 +27,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         //GameObject newSkeletonClothed = Instantiate(SkeletonClothedPrefab);
         //newSkeletonClothed.transform.position = new Vector3(5, -3);
     }
@@ -35,11 +39,14 @@ public class GameController : MonoBehaviour
         //{
         //    showResult(true);
         //}
-        if (PlayerController.instance.hp <= 0)
+        if (PlayerController.instance.hp <= 0 && noEnd)
         {
+            Time.timeScale = 0;
+            noEnd = false;
             //²¥·ÅPlayerËÀÍö¶¯»­
             PlayerController.instance.PlayerDeath();
             showResult(false);
+            print("PlayerController.instance.PlayerDeath();");
         }
 
     }

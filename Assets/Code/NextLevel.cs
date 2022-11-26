@@ -17,8 +17,12 @@ public class NextLevel : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name=="EndScene")
         {
-            PlayerModel.Instance.KungfuEnableList["Kick"] = true;
+            PlayerModel.Instance.KungfuEnableList["Kick"] = false;
             PlayerModel.Instance.KungfuEnableList["DiveKick"] = false;
+            PlayerModel.Instance.KungfuEnableList["JumpKick"] = false;
+            PlayerModel.Instance.LvValue = 0;
+            PlayerModel.Instance.Lv = 1;
+
             SceneManager.LoadScene("StartScene");               //如果是EndScene就重新加载
             return;
         }
@@ -62,8 +66,11 @@ public class NextLevel : MonoBehaviour
 
             if (nextSceneName == "StartScene")
             {
-                PlayerModel.Instance.KungfuEnableList["Kick"] = true;
+                PlayerModel.Instance.KungfuEnableList["Kick"] = false;
                 PlayerModel.Instance.KungfuEnableList["DiveKick"] = false;
+                PlayerModel.Instance.KungfuEnableList["JumpKick"] = false;
+                PlayerModel.Instance.LvValue = 0;
+                PlayerModel.Instance.Lv = 1;
             }
 
             SceneManager.LoadScene(nextSceneName);        //切换场景
@@ -71,6 +78,13 @@ public class NextLevel : MonoBehaviour
         else
         {
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name);                 //如果文本是RestartGame
+
+            PlayerModel.Instance.KungfuEnableList["Kick"] = false;
+            PlayerModel.Instance.KungfuEnableList["DiveKick"] = false;
+            PlayerModel.Instance.KungfuEnableList["JumpKick"] = false;
+            PlayerModel.Instance.LvValue = 0;
+            PlayerModel.Instance.Lv = 1;
+
             SceneManager.LoadScene("StartScene");                 //如果文本是RestartGame
         }
 

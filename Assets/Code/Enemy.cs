@@ -198,7 +198,7 @@ public class Enemy : MonoBehaviour
         PlayerModel.Instance.addLvValue(36);        //一个怪36点经验
 
         //胜利
-        if (InstanceManager.Instance.enemyBorn.curEnemyCounter <= 0 && InstanceManager.Instance.enemyBorn.bornFinished == true)
+        if (InstanceManager.Instance.enemyBorn.curEnemyCounter <= 0 && InstanceManager.Instance.enemyBorn.bornFinished == true && GameController.instance.bookNum == false)
         {
             //掉落书
             //Random Positions
@@ -209,6 +209,7 @@ public class Enemy : MonoBehaviour
 
             //生成一本书
             Instantiate(Book, newPosition, Quaternion.identity);
+            GameController.instance.bookNum = true;
         }
 
         Destroy(this.gameObject);

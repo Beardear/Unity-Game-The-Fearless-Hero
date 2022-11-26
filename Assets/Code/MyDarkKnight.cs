@@ -54,7 +54,7 @@ public class MyDarkKnight : MonoBehaviour
         //float agentOffset = 0.0001f;
         //Vector3 agentPos = (Vector3)(agentOffset * Random.insideUnitCircle) + target.position;
         //agent.SetDestination(agentPos);
-        agent.SetDestination(target.position);
+            agent.SetDestination(target.position);
 
         //Attack one time per second
         if (canAttack)
@@ -171,6 +171,7 @@ public class MyDarkKnight : MonoBehaviour
 
         if (hp <= 0)
         {
+            print("MyDarkKnight死亡");
             InstanceManager.Instance.enemyBorn.curEnemyCounter--;
             animator.SetTrigger("Death");
         }
@@ -198,8 +199,9 @@ public class MyDarkKnight : MonoBehaviour
         PlayerModel.Instance.addLvValue(72);        //一个怪36点经验
 
         //胜利
-        if (InstanceManager.Instance.enemyBorn.curEnemyCounter <= 0 && InstanceManager.Instance.enemyBorn.bornFinished == true)
+        if (InstanceManager.Instance.enemyBorn.curEnemyCounter <= 0 && InstanceManager.Instance.enemyBorn.bornFinished == true && GameController.instance.bookNum == false)
         {
+            print("----------------书");
             //掉落书
             //Random Positions
             //X介于2-8，Y介于-4--1
@@ -209,6 +211,7 @@ public class MyDarkKnight : MonoBehaviour
 
             //生成一本书
             Instantiate(Book, newPosition, Quaternion.identity);
+            GameController.instance.bookNum = true;
         }
 
         Destroy(this.gameObject);

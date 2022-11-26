@@ -156,7 +156,7 @@ MonoBehaviour:
   JabAudio: {fileID: 8300000, guid: 40cbde70727d694418e4dbb1762792cf, type: 3}
   KickAudio: {fileID: 8300000, guid: b3fece9e35409b046ac68506fec23166, type: 3}
   DiveKickAudio: {fileID: 8300000, guid: 59586b60b10e65a4c809a21299abad41, type: 3}
-  JumpKickAudio: {fileID: 8300000, guid: 1cdd83ae4e0eaee4facef4d38b58a8f9, type: 3}
+  JumpKickAudio: {fileID: 8300000, guid: cb91c56a38d46dd49859f70ad0b8737a, type: 3}
 --- !u!82 &286057654
 AudioSource:
   m_ObjectHideFlags: 0
@@ -682,6 +682,7 @@ GameObject:
   - component: {fileID: 410753968}
   - component: {fileID: 410753967}
   - component: {fileID: 410753970}
+  - component: {fileID: 410753971}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -698,7 +699,7 @@ RectTransform:
   m_GameObject: {fileID: 410753964}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.88412577}
-  m_LocalScale: {x: 3.6144583, y: 3.6144583, z: 3.6144583}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1505901798}
@@ -707,7 +708,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -27.450684, y: -164}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 339.83115, y: 80.12279}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &410753967
 MonoBehaviour:
@@ -761,7 +762,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 410753970}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -795,18 +796,32 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 72
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 72
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Next Level
+--- !u!114 &410753971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410753964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 2
 --- !u!1 &416053845
 GameObject:
   m_ObjectHideFlags: 0
@@ -2457,6 +2472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f602e0ca6479744bf82df0e08e3571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bookNum: 0
 --- !u!1 &1865477271
 GameObject:
   m_ObjectHideFlags: 0
@@ -2583,7 +2599,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2019505054}
   targetEnemy: {fileID: 4199642498274859121, guid: 6a221a08a18dffc4885788c401177e31, type: 3}
-  targetDarkKnight: {fileID: 363586869858617952, guid: d4c2585259bfd014ca7dce8f8c8d31ac, type: 3}
+  targetDarkKnight: {fileID: 4199642498274859121, guid: 6a221a08a18dffc4885788c401177e31, type: 3}
   enemyTotalNum: 3
   intervalTime: 3
   newEnemyCounter: 0
