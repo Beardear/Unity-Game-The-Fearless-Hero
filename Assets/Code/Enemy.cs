@@ -142,7 +142,7 @@ public class Enemy : MonoBehaviour
         }
         else if (collision.collider.name == "DiveKickLeftWeapon" || collision.collider.name == "DiveKickRightWeapon")
         {
-            double damage = 24 * damageArgPlayer;
+            double damage = 36 * damageArgPlayer;
             damage = Random.Range((float)damage - 3, (float)damage + 3);
             hp -= (int)damage;
             slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
@@ -154,7 +154,7 @@ public class Enemy : MonoBehaviour
         }
         else if (collision.collider.name == "JumpKickLeftWeapon" || collision.collider.name == "JumpKickRightWeapon")
         {
-            double damage = 30 * damageArgPlayer;
+            double damage = 50 * damageArgPlayer;
             damage = Random.Range((float)damage - 3, (float)damage + 3);
             hp -= (int)damage;
             slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。

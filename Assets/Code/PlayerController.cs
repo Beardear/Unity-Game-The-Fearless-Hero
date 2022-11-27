@@ -61,24 +61,24 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             //transform.position += new Vector3(0, 0.1f, 0);
-            _rigidbody2D.AddForce(Vector2.up * 25f * Time.deltaTime* speedUpArgument, ForceMode2D.Impulse);
+            _rigidbody2D.AddForce(Vector2.up * 25f * Time.deltaTime * speedUpArgument, ForceMode2D.Impulse);
         }
         if (Input.GetKey(KeyCode.S))
         {
             //transform.position += new Vector3(0, -0.1f, 0);
-            _rigidbody2D.AddForce(Vector2.down * 25f * Time.deltaTime* speedUpArgument, ForceMode2D.Impulse);
+            _rigidbody2D.AddForce(Vector2.down * 25f * Time.deltaTime * speedUpArgument, ForceMode2D.Impulse);
         }
         if (Input.GetKey(KeyCode.A))
         {
             //transform.position += new Vector3(-0.1f, 0, 0);
-            _rigidbody2D.AddForce(Vector2.left * 36f * Time.deltaTime* speedUpArgument, ForceMode2D.Impulse);
+            _rigidbody2D.AddForce(Vector2.left * 36f * Time.deltaTime * speedUpArgument, ForceMode2D.Impulse);
             sprite.flipX = true;
             setDirection(true);
         }
         if (Input.GetKey(KeyCode.D))
         {
             //transform.position += new Vector3(0.1f, 0, 0);
-            _rigidbody2D.AddForce(Vector2.right * 36f * Time.deltaTime* speedUpArgument, ForceMode2D.Impulse);
+            _rigidbody2D.AddForce(Vector2.right * 36f * Time.deltaTime * speedUpArgument, ForceMode2D.Impulse);
             sprite.flipX = false;
             setDirection(false);
         }
@@ -111,24 +111,63 @@ public class PlayerController : MonoBehaviour
             animator.SetTrigger("JumpKick");
         }
     }
-    
+
     void FixedUpdate()
     {
 
     }
 
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    print("player tag:" + collision.collider.tag);
+    //    //怪物武器攻击才会对主角产生伤害
+    //    //if (collision.collider.tag != "MonsterWeapon"&& collision.collider.tag != "MonsterWeapon_MyKnight")
+    //    //{
+    //    //    print("攻击失败");
+    //    //    return;
+    //    //}
+    //    if (collision.collider.tag == "MonsterWeapon" || collision.collider.tag == "MonsterWeapon_MyKnight")
+    //    {
+    //        collision.collider.enabled = false;
+    //        if (hp < 0) return;
+    //        if (collision.collider.tag == "MonsterWeapon")
+    //        {
+    //            hp -= 5;
+    //        }
+    //        if (collision.collider.tag == "MonsterWeapon_MyKnight")
+    //        {
+    //            hp -= 15;
+    //        }
+    //        slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
+    //    }
+    //}
     private void OnCollisionEnter2D(Collision2D collision)
     {
         print("player tag:" + collision.collider.tag);
         //怪物武器攻击才会对主角产生伤害
-        if (collision.collider.tag != "MonsterWeapon")
+        //if (collision.collider.tag != "MonsterWeapon")
+        //{
+        //    print("攻击失败");
+        //    return;
+        //}
+        if (collision.collider.tag == "MonsterWeapon")
         {
-            return;
+            collision.collider.enabled = false;
+            if (hp < 0) return;
+
+            hp -= 5;
+
+            slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
         }
-        collision.collider.enabled = false;
-        if (hp < 0) return;
-        hp -= 5;
-        slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
+        if (collision.collider.tag == "MonsterWeapon_MyKnight")
+        {
+            collision.collider.enabled = false;
+            if (hp < 0) return;
+
+            hp -= 10;
+
+            slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
+        }
     }
 
     /// <summary>
