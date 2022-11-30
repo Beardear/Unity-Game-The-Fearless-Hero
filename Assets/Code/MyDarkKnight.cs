@@ -81,51 +81,26 @@ public class MyDarkKnight : MonoBehaviour
         lastpos = transform.position;
     }
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (hp <= 0) return;
-    //    //print("enemy tag:" + collision.gameObject.tag);
-    //    if (collision.collider.tag == "Player")
-    //    {
-    //        canAttack = true;
-    //    }
-    //    //主角武器攻击才会对怪物产生伤害
-    //    if (collision.collider.tag != "PlayerWeapon")
-    //    {
-    //        return;
-    //    }
-
-    //    hp -= 20;
-    //    slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
-    //    if (hp <= 0)
-    //    {
-    //        InstanceManager.Instance.enemyBorn.curEnemyCounter--;
-    //        animator.SetTrigger("Death");
-    //    }
-    //}
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (hp <= 0) return;
-        //print("enemy tag:" + collision.gameObject.tag);
-        if (collision.collider.tag == "Player")                 //使Enemy开始攻击Player
+
+        if (collision.collider.tag == "Player")                 //Enable Enemies' attacks
         {
             canAttack = true;
         }
 
-        //主角武器攻击才会对怪物产生伤害
-        //计算Player的伤害系数
-        double damageArgPlayer = PlayerModel.Instance.Lv * 0.15 + 1;
+        double damageArgPlayer = PlayerModel.Instance.Lv * 0.15 + 1;                //Calculate Player's damage factor
         print(damageArgPlayer);
         if (collision.collider.name == "JabLeftWeapon" || collision.collider.name == "JabRightWeapon")
         {
             double damage = 12 * damageArgPlayer;
             damage = Random.Range((float)damage - 3, (float)damage + 3);
             hp -= (int)damage;
-            slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
+            slider.value = (float)hp / hpHolder;
             InstanceManager.Instance.soundManager.playJabAudio();
 
-            //数字特效
-            DamageDigits damageDigits = Instantiate(damageCanvas, transform.position, Quaternion.identity).GetComponent<DamageDigits>();
+            DamageDigits damageDigits = Instantiate(damageCanvas, transform.position, Quaternion.identity).GetComponent<DamageDigits>(); // Digital Effects
             damageDigits.ShowUIDamage(Mathf.RoundToInt((float)damage));
         }
         else if (collision.collider.name == "KickLeftWeapon" || collision.collider.name == "KickRightWeapon")
@@ -133,10 +108,9 @@ public class MyDarkKnight : MonoBehaviour
             double damage = 18 * damageArgPlayer;
             damage = Random.Range((float)damage - 3, (float)damage + 3);
             hp -= (int)damage;
-            slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
+            slider.value = (float)hp / hpHolder;
             InstanceManager.Instance.soundManager.playKickAudio();
 
-            //数字特效
             DamageDigits damageDigits = Instantiate(damageCanvas, transform.position, Quaternion.identity).GetComponent<DamageDigits>();
             damageDigits.ShowUIDamage(Mathf.RoundToInt((float)damage));
         }
@@ -145,10 +119,9 @@ public class MyDarkKnight : MonoBehaviour
             double damage = 36 * damageArgPlayer;
             damage = Random.Range((float)damage - 3, (float)damage + 3);
             hp -= (int)damage;
-            slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
+            slider.value = (float)hp / hpHolder;
             InstanceManager.Instance.soundManager.playDiveKickAudio();
 
-            //数字特效
             DamageDigits damageDigits = Instantiate(damageCanvas, transform.position, Quaternion.identity).GetComponent<DamageDigits>();
             damageDigits.ShowUIDamage(Mathf.RoundToInt((float)damage));
         }
@@ -157,10 +130,9 @@ public class MyDarkKnight : MonoBehaviour
             double damage = 50 * damageArgPlayer;
             damage = Random.Range((float)damage - 3, (float)damage + 3);
             hp -= (int)damage;
-            slider.value = (float)hp / hpHolder;//通过改变value的值（float类型）来改变血条长度。
+            slider.value = (float)hp / hpHolder;
             InstanceManager.Instance.soundManager.playJumpKickAudio();
 
-            //数字特效
             DamageDigits damageDigits = Instantiate(damageCanvas, transform.position, Quaternion.identity).GetComponent<DamageDigits>();
             damageDigits.ShowUIDamage(Mathf.RoundToInt((float)damage));
         }
